@@ -104,6 +104,8 @@ namespace Validot.Translations
 
             public static string BetweenOrEqualTo { get; private set; }
 
+            public static string Zero { get; private set; }
+
             public static string NonZero { get; private set; }
 
             public static string Positive { get; private set; }

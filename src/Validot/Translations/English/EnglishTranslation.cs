@@ -36,6 +36,7 @@ namespace Validot.Translations
             [MessageKey.Numbers.LessThanOrEqualTo] = "Must be less than or equal to {max}",
             [MessageKey.Numbers.Between] = "Must be between {min} and {max} (exclusive)",
             [MessageKey.Numbers.BetweenOrEqualTo] = "Must be between {min} and {max} (inclusive)",
+            [MessageKey.Numbers.Zero] = "Must be zero",
             [MessageKey.Numbers.NonZero] = "Must not be zero",
             [MessageKey.Numbers.Positive] = "Must be positive",
             [MessageKey.Numbers.NonPositive] = "Must not be positive",

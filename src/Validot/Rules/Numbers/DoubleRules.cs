@@ -61,6 +61,16 @@ namespace Validot
             return @this.RuleTemplate(m => m.Value > min && m.Value < max, MessageKey.Numbers.Between, Arg.Number(nameof(min), min), Arg.Number(nameof(max), max));
         }
 
+        public static IRuleOut<double> Zero(this IRuleIn<double> @this, double tolerance = 0.0000001d)
+        {
+            return @this.RuleTemplate(m => AreEqual(m, 0d, tolerance), MessageKey.Numbers.Zero, Arg.Number(nameof(tolerance), tolerance));
+        }
+
+        public static IRuleOut<double?> Zero(this IRuleIn<double?> @this, double tolerance = 0.0000001d)
+        {
+            return @this.RuleTemplate(m => AreEqual(m.Value, 0d, tolerance), MessageKey.Numbers.Zero, Arg.Number(nameof(tolerance), tolerance));
+        }
+
         public static IRuleOut<double> NonZero(this IRuleIn<double> @this, double tolerance = 0.0000001d)
         {
             return @this.RuleTemplate(m => !AreEqual(m, 0d, tolerance), MessageKey.Numbers.NonZero, Arg.Number(nameof(tolerance), tolerance));

@@ -320,6 +320,36 @@ namespace Validot.Tests.Unit.Rules.Numbers
                 typeof(ArgumentException));
         }
 
+        [Theory]
+        [InlineData(0, true)]
+        [InlineData(1, false)]
+        [InlineData(-1, false)]
+        [InlineData(int.MaxValue, false)]
+        [InlineData(int.MinValue, false)]
+        public void Zero_Should_CollectError(int model, bool shouldBeValid)
+        {
+            Tester.TestSingleRule(
+                model,
+                m => m.Zero(),
+                shouldBeValid,
+                MessageKey.Numbers.Zero);
+        }
+
+        [Theory]
+        [InlineData(0, true)]
+        [InlineData(1, false)]
+        [InlineData(-1, false)]
+        [InlineData(int.MaxValue, false)]
+        [InlineData(int.MinValue, false)]
+        public void Zero_Should_CollectError_FromNullable(int model, bool shouldBeValid)
+        {
+            Tester.TestSingleRule<int?>(
+                model,
+                m => m.Zero(),
+                shouldBeValid,
+                MessageKey.Numbers.Zero);
+        }
+
         public static IEnumerable<object[]> NonZero_Should_CollectError_Data()
         {
             return RulesHelper.GetTestDataCombined(
